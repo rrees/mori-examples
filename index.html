@@ -28,6 +28,8 @@ textarea {
 	<li>Mori doesn't require the use of clone().</li>
 
 	<li>Memory-reference swaps have become more useful with things like virtual DOMs and other code that detects incremental changes.</li>
+
+	<li>Clojure has unified sequence operations</li>
 </ul>
 
 <h2>How?</h2>
@@ -55,6 +57,8 @@ console.log(m);
 var v = mori.vector(1, 2, 3, 4);
 var ma = mori.into_array(mori.map(mori.inc, v))
 console.log(ma);
+
+console.log(mori.clj_to_js(ma));
 </textarea>
 
 <script src="js/mori.js"></script>
