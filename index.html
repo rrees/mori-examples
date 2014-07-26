@@ -5,6 +5,10 @@
 body {
 	margin: 4rem 20%;
 }
+textarea {
+	width: 100%;
+	height: 4rem;
+}
 </style>
 </head>
 
@@ -16,21 +20,42 @@ body {
 
 <h2>What?</h2>
 
-<p>Mori is a library that brings Clojure's immutable data structures to Javascript as well as the better part of the Sequence library. It also adds some interop features to allow you to move between mutable (native>) and immutable data structures.</p>
+<p>Mori is a library that brings Clojure's immutable data structures to Javascript as well as the better part of the Sequence library. It also adds some interop features to allow you to move between mutable (native) and immutable data structures.</p>
 
 <h2>Why?</h2>
 
-<p>Mori doesn't require the use of clone().</p>
+<ul>
+	<li>Mori doesn't require the use of clone().</li>
 
-<p>Memory-reference swaps have become more useful with things like virtual DOMs and other code that detects incremental changes.</p>
+	<li>Memory-reference swaps have become more useful with things like virtual DOMs and other code that detects incremental changes.</li>
+</ul>
 
 <h2>How?</h2>
+
+<p>What would be the simplest way to do this?</p>
 
 <h2>When?</h2>
 
 <p>One of the most important things about Mori is that we can use it right now in any project that uses Javascript.</p>
 
 <h2>Examples</h2>
+
+<h3>Initialising pure Mori structures</h3>
+
+<textarea>
+var v = mori.vector(1, 2, 3);
+console.log(v);
+var m = mori.hash_map("hello", "world", "a", 1);
+console.log(m);
+</textarea>
+
+<h3>JavaScript interop</h3>
+
+<textarea>
+var v = mori.vector(1, 2, 3, 4);
+var ma = mori.into_array(mori.map(mori.inc, v))
+console.log(ma);
+</textarea>
 
 <script src="js/mori.js"></script>
 
