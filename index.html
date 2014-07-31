@@ -24,14 +24,18 @@ textarea {
 
 <h2>Why?</h2>
 
+<p>
+
 <ul>
-	<li>Mori doesn't require the use of clone().</li>
+	<li>Mori doesn't require the use of clone()</li>
 
 	<li>Memory-reference swaps have become more useful with things like virtual DOMs and other code that detects incremental changes</li>
 
 	<li>Clojure has unified sequence operations</li>
 
 	<li>Value operations for collections</li>
+
+	<li>Offers functional composition: not just partial and curry but pipelines too!</li>
 </ul>
 
 <h2>How?</h2>
@@ -61,6 +65,14 @@ var ma = mori.into_array(mori.map(mori.inc, v))
 console.log(ma);
 
 console.log(mori.clj_to_js(ma));
+</textarea>
+
+<h3></h3>
+
+<textarea>
+mori.pipeline(mori.vector(1,2,3,4),
+  mori.partial(mori.map, mori.inc),
+  mori.partial(mori.filter, function(x) { return x%2 === 0; }));
 </textarea>
 
 <script src="js/mori.js"></script>
